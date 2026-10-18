@@ -13,8 +13,8 @@
   fill in is marked with "TODO" (search for it).
 
   GHL NOTE: the logo is embedded right in this file, so it works anywhere.
-  For the hero photo and headshot, upload them to GHL Media and replace
-  "images/hero.jpg" and "images/adrian.jpg" with their media URLs.
+  For your headshot, upload it to GHL Media and replace
+  "images/adrian.jpg" with its media URL.
   ============================================================
 -->
 
@@ -46,8 +46,6 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
 
-<!-- Preload the hero photo so it is the LCP, not a late CSS discovery. TODO: add images/hero.jpg (~1600px wide, under 200KB) -->
-<link rel="preload" as="image" href="images/hero.jpg" fetchpriority="high">
 
 <!-- ===================== TRACKING PLACEHOLDERS ===================== -->
 <!-- TODO: Google Tag Manager. Paste your GTM snippet here and replace GTM-XXXXXXX.
@@ -157,19 +155,10 @@ section{padding:72px 0;scroll-margin-top:var(--header-h)}
 @media (min-width:768px){.header-phone,.header .btn{display:inline-flex}.call-icon{display:none}}
 
 /* ============================== HERO ============================== */
-/* Light, warm hero: cream + soft orange glow. Feels friendlier and more "local broker" than a dark block.
-   When you add hero.jpg it shows through on the right (desktop) and faintly behind the text (mobile),
-   with a cream fade on the left so the dark text always stays readable. */
-.hero{position:relative;color:var(--ink);padding:40px 0 56px;overflow:hidden;
-  background:
-    radial-gradient(90% 60% at 100% 0%,rgba(255,152,0,.22),transparent 65%),
-    linear-gradient(180deg,rgba(255,245,232,.94) 0%,rgba(255,250,243,.97) 100%),
-    url("images/hero.jpg") center/cover no-repeat,
-    var(--orange-tint)}
-@media (min-width:900px){.hero{padding:88px 0 96px;background:
-    radial-gradient(60% 70% at 95% 10%,rgba(255,152,0,.25),transparent 70%),
-    linear-gradient(90deg,#FFF5E8 0%,rgba(255,245,232,.96) 45%,rgba(255,245,232,.55) 100%),
-    url("images/hero.jpg") center/cover no-repeat,var(--orange-tint)}}
+/* Hero uses the site's existing --orange-tint (same as the calculator, trust and form sections),
+   so it blends with the rest of the page. Dark text on it is ~16:1, body copy ~8.5:1. */
+.hero{position:relative;color:var(--ink);padding:40px 0 56px;overflow:hidden;background:var(--orange-tint)}
+@media (min-width:900px){.hero{padding:88px 0 96px}}
 .hero::after{content:"";position:absolute;left:0;right:0;bottom:0;height:1px;background:var(--orange-tint-2)}
 .hero .wrap{display:grid;gap:32px;align-items:center}
 @media (min-width:900px){.hero .wrap{grid-template-columns:1.25fr .85fr;gap:56px}}
@@ -468,9 +457,9 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 <section class="hero" id="top" aria-labelledby="hero-h">
   <div class="wrap">
     <div>
-      <span class="pill"><span class="dot"></span>For Bradenton &amp; Sarasota homeowners</span>
-      <h1 id="hero-h">Selling without an agent? Get a full&#8209;service broker for <em>2%&nbsp;total.</em></h1>
-      <p class="sub">Most owners selling on their own still pay the buyer's agent <strong style="white-space:nowrap">2.5–3%</strong>. With us it's <strong>2% total</strong>, with a broker on your side, <strong>even if another agent brings the buyer.</strong></p>
+      <span class="pill"><span class="dot"></span>Bradenton &amp; Sarasota FSBOs</span>
+      <h1 id="hero-h">Full&#8209;service listing. <em>2%&nbsp;total.</em></h1>
+      <p class="sub">Less than most FSBO sellers end up paying the buyer's agent alone.</p>
       <ul class="chips" aria-label="Program guarantees">
         <li><svg aria-hidden="true"><use href="#i-tick"/></svg>No upfront fees</li>
         <li><svg aria-hidden="true"><use href="#i-tick"/></svg>Cancel anytime</li>
