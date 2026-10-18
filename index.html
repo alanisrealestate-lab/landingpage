@@ -374,6 +374,8 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 .consent input{width:20px;height:20px;flex:none;margin:1px 0 0;accent-color:var(--orange-ink)}
 .form-card .btn{margin-top:16px}
 .form-card .cta-note{justify-content:center;margin-top:10px}
+.form-legal{font-size:.78rem;color:#6f6962;text-align:center;margin:8px 0 0}
+.form-legal a{color:var(--ink-2)}
 .form-error{display:none;margin-top:12px;color:var(--bad);font-weight:600;font-size:.9rem;text-align:center}
 .thanks{display:none;text-align:center;padding:12px 0}
 .thanks .ic{width:64px;height:64px;border-radius:50%;background:var(--orange);color:var(--ink);display:grid;place-items:center;margin:0 auto 16px}
@@ -902,10 +904,11 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
         -->
         <label class="consent">
           <input type="checkbox" id="f-consent" name="sms_consent" value="yes">
-          <span>[PLACEHOLDER, REVIEW] By checking this box, I agree to receive calls and text messages, including automated messages, from <span data-cfg="brokerageName">The Orange Real Estate Group</span> at the number above about my home sale. Consent isn't required to buy or sell. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <a data-cfg-href="privacyPolicyUrl" href="#">Privacy Policy</a>.</span>
+          <span>[PLACEHOLDER, REVIEW] By checking this box, I agree to receive calls and text messages, including automated messages, from <span data-cfg="brokerageName">The Orange Real Estate Group</span> at the number above about my home sale. Consent isn't required to buy or sell. Msg &amp; data rates may apply. Msg frequency varies. Reply STOP to opt out, HELP for help. See our <a data-cfg-href="privacyPolicyUrl" href="privacy.html">Privacy Policy</a>.</span>
         </label>
         <button class="btn btn-primary btn-block" type="submit" id="f-submit">Book My 15-Min Visit</button>
         <p class="cta-note"><svg aria-hidden="true"><use href="#i-check"/></svg>No pressure. Nothing to sign at our first meeting.</p>
+        <p class="form-legal">By submitting, you agree to our <a data-cfg-href="privacyPolicyUrl" href="privacy.html">Privacy Policy</a> and <a data-cfg-href="termsUrl" href="terms.html">Terms of Use</a>.</p>
         <p class="form-error" id="form-error" role="alert">Something went wrong. Please call us at <a data-tel href="tel:+19413450141"><span data-cfg="phoneDisplay">(941) 345-0141</span></a>.</p>
       </form>
 
@@ -963,11 +966,13 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
           <li><a href="#compare">Compare options</a></li>
           <li><a href="#faq">FAQ</a></li>
           <li><a href="#book">Book a visit</a></li>
+          <li><a data-cfg-href="privacyPolicyUrl" href="privacy.html">Privacy Policy</a></li>
+          <li><a data-cfg-href="termsUrl" href="terms.html">Terms of Use</a></li>
         </ul>
       </div>
     </div>
     <div class="legal">
-      <div>© <span id="year">2026</span> <span data-cfg="brokerageName">The Orange Real Estate Group</span>. Licensed Real Estate Broker, State of Florida · Lic. # <span data-cfg="licenseNumber">[LICENSE #]</span> · <a data-cfg-href="privacyPolicyUrl" href="#">Privacy Policy</a></div>
+      <div>© <span id="year">2026</span> <span data-cfg="brokerageName">The Orange Real Estate Group</span>. Licensed Real Estate Broker, State of Florida · Lic. # <span data-cfg="licenseNumber">[LICENSE #]</span> · <a data-cfg-href="privacyPolicyUrl" href="privacy.html">Privacy Policy</a> · <a data-cfg-href="termsUrl" href="terms.html">Terms of Use</a></div>
       <div class="eho">
         <svg viewBox="0 0 40 40" role="img" aria-label="Equal Housing Opportunity logo"><path d="M20 3 2 15h4v20h28V15h4z" fill="none" stroke="currentColor" stroke-width="2.6" stroke-linejoin="round"/><rect x="13" y="18" width="14" height="3.2" fill="currentColor"/><rect x="13" y="24.5" width="14" height="3.2" fill="currentColor"/></svg>
         <span>Equal Housing Opportunity</span>
@@ -994,7 +999,8 @@ const CONFIG = {
   email:          "hello@example.com",       // TODO
   officeAddress:  "515 9th St E, Ste #101, Bradenton, FL 34208",
   licenseNumber:  "[LICENSE #]",             // TODO: brokerage license number
-  privacyPolicyUrl: "#",                     // TODO
+  privacyPolicyUrl: "privacy.html",          // Privacy Policy page
+  termsUrl:       "terms.html",              // Terms of Use page
   social: {                                  // TODO: your profile URLs
     facebook:  "#",
     instagram: "#",
@@ -1087,7 +1093,8 @@ const CONFIG = {
   /* ---------- Option (b): swap native form for a GHL embed ---------- */
   if (CONFIG.ghlEmbedUrl) {
     const card = $("#form-card");
-    card.innerHTML = '<div class="ghl-embed"><iframe src="' + CONFIG.ghlEmbedUrl + '" title="Book a visit" loading="lazy"></iframe></div>';
+    card.innerHTML = '<div class="ghl-embed"><iframe src="' + CONFIG.ghlEmbedUrl + '" title="Book a visit" loading="lazy"></iframe></div>' +
+      '<p class="form-legal">By submitting, you agree to our <a href="' + CONFIG.privacyPolicyUrl + '">Privacy Policy</a> and <a href="' + CONFIG.termsUrl + '">Terms of Use</a>.</p>';
     const s = document.createElement("script"); s.src = "https://link.msgsndr.com/js/form_embed.js"; s.async = true; document.body.appendChild(s);
     return; // native form logic not needed
   }
