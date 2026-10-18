@@ -333,9 +333,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 .guarantee p{margin:0;font-size:.92rem;line-height:1.45}
 /* GHL reviews widget. It's an iframe from GHL, so the reviews inside can't be restyled from this page;
    colors/layout inside are set in GHL > Reputation > Widgets. This wrapper makes it sit like the site's other cards. */
-.reviews-block{margin-top:40px}
-.reviews-block .card-title{text-align:center;margin-bottom:16px}
-.reviews-widget{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:12px;overflow:hidden}
+.reviews-widget{margin-top:32px;background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:12px;overflow:hidden}
 @media (min-width:600px){.reviews-widget{padding:20px}}
 .reviews-widget iframe{display:block;width:100%;min-width:100%;min-height:420px;border:0}
 
@@ -391,7 +389,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 .final .btn-primary{background:var(--ink);color:#fff;box-shadow:none}
 .final .btn-primary:hover{background:#000}
 .final .btn-ghost:hover{background:var(--ink);color:var(--logo-orange)}
-.final .cta-note{justify-content:center;color:var(--ink)}
+.final .cta-note{justify-content:center;color:var(--ink);margin-top:28px}
 .final .cta-note svg{color:var(--ink)}
 
 /* ============================== FOOTER ============================== */
@@ -757,6 +755,24 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   </div>
 </section>
 
+<!-- ============================== REVIEWS ============================== -->
+<section id="reviews" aria-labelledby="reviews-h">
+  <div class="wrap">
+    <div class="center reveal">
+      <span class="eyebrow">Reviews</span>
+      <h2 class="section-title" id="reviews-h">What our clients say</h2>
+    </div>
+    <!-- Live Google reviews from the GHL Reputation widget -->
+    <div class="reviews-widget reveal">
+      <iframe class="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/njoCXV0Cts3zCT2uviub" title="Google reviews for The Orange Real Estate Group" frameborder="0" scrolling="no" loading="lazy" style="min-width:100%;width:100%"></iframe>
+    </div>
+    <div class="section-cta reveal">
+      <a class="btn btn-primary" href="#book" data-cta="reviews">Book a 15-Min Visit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
+      <p class="cta-note"><svg aria-hidden="true"><use href="#i-check"/></svg>Nothing to sign at our first meeting.</p>
+    </div>
+  </div>
+</section>
+
 <!-- ============================== 8. TRUST ============================== -->
 <section id="trust" class="tint" aria-labelledby="trust-h">
   <div class="wrap">
@@ -771,13 +787,6 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
       <div class="guarantee reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-pen-off"/></svg></div><div><h3>Nothing to sign at the first visit</h3><p>Just a 15-minute conversation at your house.</p></div></div>
     </div>
 
-    <!-- Live Google reviews from the GHL Reputation widget -->
-    <div class="reviews-block reveal">
-      <h3 class="card-title">What our clients say</h3>
-      <div class="reviews-widget">
-        <iframe class="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/njoCXV0Cts3zCT2uviub" title="Google reviews for The Orange Real Estate Group" frameborder="0" scrolling="no" loading="lazy" style="min-width:100%;width:100%"></iframe>
-      </div>
-    </div>
     <div class="section-cta reveal">
       <a class="btn btn-primary" href="#book" data-cta="trust">Book a 15-Min Visit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
       <p class="cta-note"><svg aria-hidden="true"><use href="#i-check"/></svg>No upfront fees. Cancel anytime.</p>
