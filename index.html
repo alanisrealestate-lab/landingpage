@@ -116,7 +116,10 @@ a{color:var(--orange-ink)}
 .wrap{width:100%;max-width:1160px;margin:0 auto;padding:0 20px}
 section{padding:72px 0;scroll-margin-top:var(--header-h)}
 @media (min-width:900px){section{padding:104px 0}}
-.eyebrow{display:inline-block;font-size:.8rem;font-weight:700;letter-spacing:.08em;text-transform:uppercase;color:var(--orange-ink);margin-bottom:12px}
+/* Shared section heading styles. Every section uses .eyebrow (small label) + .section-title (main header),
+   so new sections match automatically: just reuse these two classes. */
+.eyebrow{display:inline-block;font-size:clamp(1rem,2.8vw,1.2rem);font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--orange);margin-bottom:12px}
+.section-title{font-size:clamp(1.75rem,5.6vw,2.75rem);font-weight:800;color:var(--ink);line-height:1.12;letter-spacing:-.02em}
 .lead{font-size:1.1rem;max-width:640px}
 .center{text-align:center}.center .lead{margin-left:auto;margin-right:auto}
 .tint{background:var(--orange-tint)}
@@ -490,7 +493,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Here's the thing</span>
-      <h2 id="reframe-h">Wait, you're already paying a commission.</h2>
+      <h2 class="section-title" id="reframe-h">You're already contemplating paying commission anyways</h2>
       <p class="lead">Most buyers in our area come with an agent. When they do, <strong>you're usually paying that agent 2.5–3%</strong>, and they work for the buyer, not you.</p>
       <p class="lead">So you pay a commission <strong>and</strong> do all the work. With nobody on your side.</p>
     </div>
@@ -531,7 +534,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Savings calculator</span>
-      <h2 id="calc-h">See what you'd keep.</h2>
+      <h2 class="section-title" id="calc-h">See what you'd keep.</h2>
       <p class="lead">Drag the slider to your home's price.</p>
     </div>
 
@@ -588,7 +591,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">What you get for 2%</span>
-      <h2 id="inc-h">Everything a full-service listing gets. For less than you planned to pay.</h2>
+      <h2 class="section-title" id="inc-h">Everything a full-service listing gets. For less than you planned to pay.</h2>
     </div>
     <div class="features">
       <div class="feature reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-piggy"/></svg></div><h3>2% total</h3><p>Paid at closing. Even if another agent brings the buyer.</p></div>
@@ -613,7 +616,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Side by side</span>
-      <h2 id="cmp-h">FSBO vs. Sell for 2% vs. traditional.</h2>
+      <h2 class="section-title" id="cmp-h">FSBO vs. Sell for 2% vs. traditional.</h2>
       <p class="lead">Same full service as a traditional listing. A lower total than most FSBOs end up paying.</p>
     </div>
     <!-- Our column sits in the MIDDLE: it's the "obvious pick" anchor between the two alternatives. -->
@@ -650,7 +653,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Our method</span>
-      <h2 id="method-h">Buyers don't find us. We find them.</h2>
+      <h2 class="section-title" id="method-h">Buyers don't find us. We find them.</h2>
       <p class="lead">We don't just put it on the MLS and wait. <strong>We go after buyers directly</strong> on Zillow, Realtor.com, Google, Facebook and Instagram.</p>
     </div>
     <ol class="steps">
@@ -677,7 +680,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Zero risk</span>
-      <h2 id="trust-h">If we don't earn it, you don't owe it.</h2>
+      <h2 class="section-title" id="trust-h">If we don't earn it, you don't owe it.</h2>
       <p class="lead">We care more about our reputation than locking anyone in. <strong>We've never been fired.</strong></p>
     </div>
     <div class="guarantees">
@@ -736,7 +739,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap">
     <div class="center reveal">
       <span class="eyebrow">Questions</span>
-      <h2 id="faq-h">Straight answers.</h2>
+      <h2 class="section-title" id="faq-h">Straight answers.</h2>
     </div>
     <div class="faq">
       <details>
@@ -792,7 +795,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
   <div class="wrap book-grid">
     <div class="book-copy reveal">
       <span class="eyebrow">Next step</span>
-      <h2 id="book-h">Book a relaxed 15&#8209;minute visit.</h2>
+      <h2 class="section-title" id="book-h">Book a relaxed 15&#8209;minute visit.</h2>
       <p class="lead">Adrian comes to your house, introduces himself and walks you through the program. You decide if it's a fit.</p>
       <ul>
         <li><svg aria-hidden="true"><use href="#i-check"/></svg><span><strong>Nothing to sign</strong> at this meeting</span></li>
@@ -871,7 +874,7 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 <!-- ============================== 11. FINAL CTA ============================== -->
 <section class="final" aria-labelledby="final-h">
   <div class="wrap">
-    <h2 id="final-h">You were going to pay a commission anyway. Pay less and get a broker.</h2>
+    <h2 class="section-title" id="final-h">You were going to pay a commission anyway. Pay less and get a broker.</h2>
     <p>2% total. No upfront fees. Cancel anytime.</p>
     <div class="cta-row">
       <a class="btn btn-primary" href="#book" data-cta="final">Book a Visit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
