@@ -332,16 +332,13 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
 .guarantee .ic svg{width:22px;height:22px}
 .guarantee h3{margin-bottom:2px;font-size:1.05rem}
 .guarantee p{margin:0;font-size:.92rem;line-height:1.45}
-.rating{display:inline-flex;align-items:center;gap:10px;background:#fff;border:1px solid var(--line);border-radius:999px;padding:8px 16px;margin-top:40px;box-shadow:var(--shadow);font-weight:700;color:var(--ink);font-size:.92rem}
-.stars{display:flex;gap:2px;color:#F5A623}
-.stars svg{width:18px;height:18px}
-.reviews{display:grid;gap:14px;margin-top:20px}
-@media (min-width:800px){.reviews{grid-template-columns:repeat(3,1fr);gap:18px}}
-.review{background:#fff;border-radius:var(--radius);padding:22px;border:1px solid var(--line);box-shadow:var(--shadow);margin:0}
-.review blockquote{margin:12px 0 14px;color:var(--ink);font-size:1rem;line-height:1.55}
-.review figcaption{font-size:.88rem}
-.review figcaption strong{display:block}
-.review.placeholder{border:2px dashed #d9c9b4}
+/* GHL reviews widget. It's an iframe from GHL, so the reviews inside can't be restyled from this page;
+   colors/layout inside are set in GHL > Reputation > Widgets. This wrapper makes it sit like the site's other cards. */
+.reviews-block{margin-top:40px}
+.reviews-block .card-title{text-align:center;margin-bottom:16px}
+.reviews-widget{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:12px;overflow:hidden}
+@media (min-width:600px){.reviews-widget{padding:20px}}
+.reviews-widget iframe{display:block;width:100%;min-width:100%;min-height:420px;border:0}
 
 /* ============================== FAQ ============================== */
 .faq{max-width:800px;margin:32px auto 0;display:grid;gap:10px}
@@ -773,31 +770,12 @@ table.compare{width:100%;min-width:320px;border-collapse:separate;border-spacing
       <div class="guarantee reveal"><div class="ic"><svg aria-hidden="true"><use href="#i-pen-off"/></svg></div><div><h3>Nothing to sign at the first visit</h3><p>Just a 15-minute conversation at your house.</p></div></div>
     </div>
 
-    <div class="center">
-      <!-- TODO: replace with your real Google rating and review count (or a GHL reviews widget). Don't publish until it's real. -->
-      <div class="rating reveal">
-        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <span>[X.X] on Google · [XX] reviews</span>
+    <!-- Live Google reviews from the GHL Reputation widget -->
+    <div class="reviews-block reveal">
+      <h3 class="card-title">What our clients say</h3>
+      <div class="reviews-widget">
+        <iframe class="lc_reviews_widget" src="https://reputationhub.site/reputation/widgets/review_widget/njoCXV0Cts3zCT2uviub" title="Google reviews for The Orange Real Estate Group" frameborder="0" scrolling="no" loading="lazy" style="min-width:100%;width:100%"></iframe>
       </div>
-    </div>
-
-    <!-- TODO: replace all 3 testimonials with REAL reviews (name + neighborhood). Remove the .placeholder class when done. -->
-    <div class="reviews">
-      <figure class="review placeholder reveal">
-        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <blockquote>"[PLACEHOLDER: real client quote goes here. Best ones mention saving money and how easy it was.]"</blockquote>
-        <figcaption><strong>[First name, last initial]</strong>[Neighborhood], Bradenton</figcaption>
-      </figure>
-      <figure class="review placeholder reveal">
-        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <blockquote>"[PLACEHOLDER: ideally from a seller who tried FSBO first, then switched.]"</blockquote>
-        <figcaption><strong>[First name, last initial]</strong>[Neighborhood], Sarasota</figcaption>
-      </figure>
-      <figure class="review placeholder reveal">
-        <span class="stars" aria-hidden="true"><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg><svg><use href="#i-star"/></svg></span>
-        <blockquote>"[PLACEHOLDER: quote about speed of sale or negotiation results.]"</blockquote>
-        <figcaption><strong>[First name, last initial]</strong>[Neighborhood], Lakewood Ranch</figcaption>
-      </figure>
     </div>
     <div class="section-cta reveal">
       <a class="btn btn-primary" href="#book" data-cta="trust">Book a 15-Min Visit <svg aria-hidden="true"><use href="#i-arrow"/></svg></a>
@@ -1200,5 +1178,7 @@ const CONFIG = {
   });
 })();
 </script>
+<!-- GHL reviews widget script (auto-sizes the reviews iframe). Deferred so it doesn't slow the page. -->
+<script defer src="https://reputationhub.site/reputation/assets/review-widget.js"></script>
 </body>
 </html>
