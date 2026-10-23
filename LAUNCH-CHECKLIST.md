@@ -35,3 +35,4 @@ Live site: https://sellfor2.theorangerealestategroup.com
 - [ ] Switch the remaining #FF9800 accents (section labels, 2% badge, calculator slider) to the logo orange #FAA32A.
 - [ ] Make the final orange banner the darker orange (#B35C00) so the white text is easier to read.
 - [ ] Rename the main step's path from `landing-page-page` to something cleaner, like `sell-for-2`.
+- [ ] Make `www.sellfor2.theorangerealestategroup.com` work too: add a CNAME record for `www.sellfor2` with the same value as `sellfor2`, add it as a domain in GHL, and redirect it to the version without www.
