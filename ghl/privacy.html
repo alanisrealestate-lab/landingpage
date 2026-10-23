@@ -4,12 +4,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<!--
-  Privacy Policy page for The Orange Real Estate Group.
-  Uses the same header, footer, fonts, colors and shared heading classes
-  (.eyebrow, .section-title, .card-title) as index.html. The CSS is copied in so this
-  file works on its own (e.g. pasted into a GHL funnel step). Links are set in CONFIG at the bottom.
--->
+<!-- Privacy Policy: built by build_pages.py from index.html. Edit the build script, not this file. -->
 <title>Privacy Policy | The Orange Real Estate Group</title>
 <meta name="description" content="How The Orange Real Estate Group collects, uses and protects your personal information.">
 <meta name="theme-color" content="#FAA32A">
@@ -19,6 +14,7 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" media="print" onload="this.media='all'">
 <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap"></noscript>
+<!-- TODO: paste the same Meta Pixel / GTM snippets you use on the main page here. -->
 <style>
 /* ============================== TOKENS ============================== */
 :root{
@@ -106,6 +102,15 @@ section{padding:72px 0;scroll-margin-top:var(--header-h)}
 @media (min-width:768px){.header-phone,.header .btn{display:inline-flex}.call-icon{display:none}}
 
 .card-title{font-size:clamp(1.4rem,4.2vw,1.75rem);font-weight:800;color:var(--ink);letter-spacing:-.02em;margin-bottom:12px}
+/* ============================== METHOD ============================== */
+.steps{list-style:none;padding:0;margin:36px 0 0;display:grid;gap:14px;counter-reset:s}
+@media (min-width:900px){.steps{grid-template-columns:repeat(4,1fr);gap:18px}}
+.step{position:relative;background:#fff;border-radius:var(--radius);padding:22px 20px 20px 74px;border:1px solid var(--line);box-shadow:var(--shadow)}
+@media (min-width:900px){.step{padding:24px 22px}}
+.step::before{counter-increment:s;content:counter(s);position:absolute;left:20px;top:20px;width:40px;height:40px;border-radius:50%;background:var(--orange);color:var(--ink);font-weight:800;display:grid;place-items:center}
+@media (min-width:900px){.step::before{position:static;margin-bottom:14px}}
+.step h3{margin-bottom:6px}
+.step p{margin:0;font-size:.94rem;line-height:1.5}
 /* ============================== FOOTER ============================== */
 /* White footer with orange text. Text uses the darker brand orange (--orange-ink, 4.7:1 on white) so the
    small print stays readable; headings and icons use the logo orange as accents. */
@@ -127,21 +132,37 @@ section{padding:72px 0;scroll-margin-top:var(--header-h)}
 .eho svg{width:34px;height:34px;color:var(--orange-ink)}
 
 
-/* ============================== LEGAL PAGE ============================== */
-.legal-hero{background:var(--orange-tint);padding:40px 0 36px;border-bottom:1px solid var(--orange-tint-2)}
-@media (min-width:900px){.legal-hero{padding:72px 0 56px}}
-.legal-hero h1{margin-bottom:8px}
+/* ============================== SECONDARY PAGES ============================== */
+.page-hero{background:var(--orange-tint);padding:40px 0 36px;border-bottom:1px solid var(--orange-tint-2)}
+@media (min-width:900px){.page-hero{padding:72px 0 56px}}
+.page-hero h1{margin-bottom:8px}
+.page-hero .sub{font-size:1.08rem;margin:0;max-width:640px}
+.page-body{padding:40px 0 64px}
+@media (min-width:900px){.page-body{padding:64px 0 96px}}
 .effective{margin:0;font-weight:600;color:var(--ink-2)}
-.legal-body{padding:40px 0 64px}
-@media (min-width:900px){.legal-body{padding:64px 0 96px}}
-/* ~70 characters per line on desktop, comfortable line spacing on phones */
+/* Legal text: ~70 characters per line on desktop, comfortable line spacing on phones */
 .prose{max-width:720px;margin:0 auto;font-size:1.02rem;line-height:1.75}
 .prose .card-title{margin:40px 0 10px;font-size:clamp(1.25rem,3.8vw,1.5rem)}
 .prose .card-title:first-child{margin-top:0}
 .prose ul{padding-left:1.25em;margin:0 0 1em}
 .prose li{margin-bottom:8px}
 .prose li::marker{color:var(--logo-orange)}
+.narrow{max-width:860px;margin:0 auto}
 .back-home{margin-top:48px;padding-top:28px;border-top:1px solid var(--line)}
+.card{background:#fff;border:1px solid var(--line);border-radius:24px;box-shadow:var(--shadow);padding:22px 18px}
+@media (min-width:600px){.card{padding:32px}}
+.cal-card{padding:8px;overflow:hidden}
+@media (min-width:600px){.cal-card{padding:16px}}
+.cal-card iframe{display:block;width:100%;min-height:720px;border:0;overflow:hidden}
+.talk{display:flex;flex-direction:column;gap:14px;align-items:flex-start;margin-top:16px}
+@media (min-width:700px){.talk{flex-direction:row;align-items:center;justify-content:space-between}}
+.talk p{margin:0}
+.steps.three{margin-top:20px}
+@media (min-width:900px){.steps.three{grid-template-columns:repeat(3,1fr)}}
+.step::before{background:var(--logo-orange)}
+.next-h{margin:48px 0 0;text-align:center}
+.done-ic{width:64px;height:64px;border-radius:50%;background:var(--logo-orange);color:var(--ink);display:grid;place-items:center;margin-bottom:18px}
+.done-ic svg{width:32px;height:32px}
 </style>
 </head>
 
@@ -187,7 +208,7 @@ section{padding:72px 0;scroll-margin-top:var(--header-h)}
 </header>
 
 <main id="main">
-  <section class="legal-hero" aria-labelledby="page-h">
+<section class="page-hero" aria-labelledby="page-h">
     <div class="wrap">
       <div class="prose">
         <span class="eyebrow">Legal</span>
@@ -197,7 +218,7 @@ section{padding:72px 0;scroll-margin-top:var(--header-h)}
     </div>
   </section>
 
-  <section class="legal-body">
+  <section class="page-body">
     <div class="wrap">
       <div class="prose">
 
@@ -304,6 +325,7 @@ const CONFIG = {
   homeUrl:          "/",            // the Sell for 2% page ("our website" links point here)
   privacyPolicyUrl: "/privacy-policy",
   termsUrl:         "/terms-of-use",
+  ghlCalendarUrl:   "https://api.leadconnectorhq.com/widget/booking/WjZqpJiC2H1LUz47E8ZY",
   social: { facebook: "#", instagram: "#", google: "#" }
 };
 (function () {
@@ -314,6 +336,10 @@ const CONFIG = {
   $$("a[data-tel]").forEach(a => a.href = "tel:" + CONFIG.phoneE164);
   $$("a[data-mailto]").forEach(a => a.href = "mailto:" + CONFIG.email);
   const y = document.getElementById("year"); if (y) y.textContent = new Date().getFullYear();
+  // First name saved by the main page's form (never put in the URL)
+  let lead = {}; try { lead = JSON.parse(sessionStorage.getItem("sf2_lead") || "{}"); } catch (e) {}
+  $$("[data-first-name]").forEach(el => { if (lead.first_name) el.textContent = el.dataset.firstName.replace("{name}", lead.first_name); });
+
 })();
 </script>
 </body>

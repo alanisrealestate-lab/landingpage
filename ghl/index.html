@@ -1018,6 +1018,7 @@ const CONFIG = {
   licenseNumber:  "[LICENSE #]",             // TODO: brokerage license number
   privacyPolicyUrl: "/privacy-policy",          // Privacy Policy page
   termsUrl:       "/terms-of-use",              // Terms of Use page
+  thankYouUrl:    "/thank-you",          // where the form sends people after they submit ("" = show the inline thank-you instead)
   social: {                                  // TODO: your profile URLs
     facebook:  "#",
     instagram: "#",
@@ -1040,7 +1041,7 @@ const CONFIG = {
   ghlEmbedUrl: "",
 
   // Optional: GHL calendar link shown as "Pick a time now" on the thank-you screen.
-  ghlCalendarUrl: ""
+  ghlCalendarUrl: "https://api.leadconnectorhq.com/widget/booking/WjZqpJiC2H1LUz47E8ZY"
 };
 
 (function () {
@@ -1187,6 +1188,11 @@ const CONFIG = {
       if (typeof window.fbq === "function") fbq("track", "Lead", { content_name: "Sell for 2% visit request" });
       if (typeof window.gtag === "function") gtag("event", "generate_lead", { form_name: "sell_for_2" });
       (window.dataLayer = window.dataLayer || []).push({ event: "lead_submit", form_name: "sell_for_2", timeline: payload.timeline });
+
+      // Hand the details to the thank-you page so the calendar can be pre-filled. sessionStorage keeps them out of the
+      // URL (Meta's pixel reads page URLs and doesn't allow personal info in them).
+      try { sessionStorage.setItem("sf2_lead", JSON.stringify({ first_name, last_name: payload.last_name, email: payload.email, phone: payload.phone, address: payload.address1 })); } catch (e) {}
+      if (CONFIG.thankYouUrl) { setTimeout(() => { location.href = CONFIG.thankYouUrl; }, 400); return; } // short pause lets the pixel event send
 
       $("#thanks-name").textContent = first_name ? ", " + first_name : "";
       if (CONFIG.ghlCalendarUrl) { $("#thanks-cal-link").href = CONFIG.ghlCalendarUrl; $("#thanks-cal").hidden = false; }

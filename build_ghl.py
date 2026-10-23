@@ -2,7 +2,7 @@
 
 GHL only receives the code you paste, not this repo's images/ folder or other files, so the
 GHL copies load photos from GHL Media and link between pages using GHL funnel-step paths.
-Run after editing index.html, privacy.html or terms.html:  python3 build_ghl.py
+Run after any change:  python3 build_pages.py && python3 build_ghl.py
 """
 import os, re
 
@@ -16,11 +16,12 @@ LINKS = {
     "homeUrl": "/",
     "privacyPolicyUrl": "/privacy-policy",
     "termsUrl": "/terms-of-use",
+    "thankYouUrl": "/thank-you",
 }
 NOTE = "<!-- GHL VERSION, built by build_ghl.py. Paste this file into GHL; edit the repo version, not this one. -->\n"
 
 os.makedirs("ghl", exist_ok=True)
-for name in ("index.html", "privacy.html", "terms.html"):
+for name in ("index.html", "privacy.html", "terms.html", "thank-you.html", "booked.html"):
     s = open(name).read()
     for local, url in IMAGES.items():
         s = s.replace(f'src="{local}"', f'src="{url}"')
